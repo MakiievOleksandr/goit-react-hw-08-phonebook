@@ -1,8 +1,12 @@
 .section {
-  max-width: 500px;
-  padding: 50px;
+  width: 300px;
+  padding: 40px;
   border: 1px solid black;
   border-radius: 10px;
+}
+
+.form {
+  height: auto;
 }
 
 .header {

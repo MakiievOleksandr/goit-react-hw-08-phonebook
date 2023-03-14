@@ -2,24 +2,25 @@ import { useMemo } from 'react';
 
 import { nanoid } from 'nanoid';
 
-import css from './text.module.scss';
+import { TextField } from '@mui/material';
+// import css from './text.module.scss';
 
-const TextField = ({ label, name, handleChange, ...props }) => {
+const MyTextField = ({ label, name, handleChange, ...props }) => {
   const id = useMemo(() => nanoid(), []);
   const inputName = useMemo(() => name || id, [name, id]);
 
   return (
-    <div className={css.wrap}>
-      <label htmlFor={id}></label>
-      <input
-        name={inputName}
-        className={css.textin}
-        id={id}
-        onChange={handleChange}
-        {...props}
-      />
-    </div>
+    <TextField
+      fullWidth
+      margin="normal"
+      label={label}
+      variant="filled"
+      name={inputName}
+      id={id}
+      onChange={handleChange}
+      {...props}
+    />
   );
 };
 
-export default TextField;
+export default MyTextField;

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import Section from '../Section/Section';
 import ContactForm from '../ContactForm/ContactForm';
-import ContactList from '../ContactList/ContactList';
+import MyContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 
 import {
@@ -53,12 +53,13 @@ const Contacts = () => {
     <div className={css.wrapper}>
       {addContactBtn && (
         <Section
+          style={css.formal}
           title="Add contact"
           button={
             <Button
               style={css.addBtn}
               onClick={handleAddContactBtn}
-              children={!addContactBtn ? 'Add contact' : 'Hide'}
+              children={addContactBtn && 'Hide'}
             />
           }
         >
@@ -70,7 +71,6 @@ const Contacts = () => {
         button={
           !addContactBtn && (
             <Button
-              style={css.addBtn}
               onClick={handleAddContactBtn}
               children={!addContactBtn && 'Add contact'}
             />
@@ -78,7 +78,7 @@ const Contacts = () => {
         }
       >
         <Filter filter={filter} onChangeFilter={changeFilter} />
-        <ContactList
+        <MyContactList
           onDeleteContact={onDeleteContact}
           filteredContacts={filteredContacts}
         />

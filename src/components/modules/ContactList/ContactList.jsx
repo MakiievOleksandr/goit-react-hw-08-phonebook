@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import ListItem from 'components/modules/ListItem/ListItem';
+import MyListItem from 'components/modules/ListItem/ListItem';
 import { getfilteredContacts } from 'redux/contacts/contacts-selectors';
 
 import css from './contact-list.module.scss';
 
 function ContactList({ onDeleteContact }) {
   const visible = useSelector(getfilteredContacts);
+
   return (
     <ul className={css.list}>
       {visible.map(contact => {
         return (
-          <ListItem
+          <MyListItem
             onDeleteContact={onDeleteContact}
             contact={contact}
             key={contact.id}
