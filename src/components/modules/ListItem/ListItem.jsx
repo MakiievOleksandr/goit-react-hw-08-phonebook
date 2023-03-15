@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { List, SvgIcon, Icon } from '@mui/material';
+import { List, SvgIcon } from '@mui/material';
 import { Clear } from '@mui/icons-material';
 import MyButton from 'components/shared/components/Button/Button';
 
