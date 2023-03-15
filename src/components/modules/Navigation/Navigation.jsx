@@ -13,7 +13,7 @@ const Navigation = () => {
     <div className={css.navbar}>
       {isLogin ? (
         <>
-          <NavLink className={css.link} to="/contacts">
+          <NavLink className={`${css.link} ${css.navText}`} to="/contacts">
             Contacts
           </NavLink>
           <UserMenu />

@@ -20,7 +20,7 @@ const RegisterForm = ({ onSubmit }) => {
         handleChange={handleChange}
         {...fields.password}
       />
-      <Button>Register</Button>
+      <Button>Sign up</Button>
     </form>
   );
 };

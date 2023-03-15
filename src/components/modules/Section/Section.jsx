@@ -7,7 +7,7 @@ function Section({ title, children, ...props }) {
   return (
     <section className={`${css.section} ${style}`}>
       <div className={css.header}>
-        {title ? <h2 className="title">{title}</h2> : ' '}
+        {title && <h2 className={css.title}>{title}</h2>}
         {button}
       </div>
       {children}

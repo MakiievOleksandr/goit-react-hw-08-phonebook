@@ -1,5 +1,6 @@
 .listItem {
   list-style: none;
+
   display: flex;
   justify-content: space-between;
   padding: 5px 10px;
@@ -13,4 +14,15 @@
 
 .text {
   font-weight: 500;
+  @media screen and (max-width: 320px) {
+    font-size: 12px;
+  }
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.contactField {
+  display: flex;
+  align-items: center;
 }

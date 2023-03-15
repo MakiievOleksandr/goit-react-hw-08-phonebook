@@ -2,9 +2,10 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import css from './button.module.scss';
 
-const MyButton = ({ children, type = 'submit', onClick, ...props }) => {
+const MyButton = ({ children, size, type = 'submit', onClick, ...props }) => {
   return (
     <Button
+      size={size}
       className={`${css.button} ${props.style}`}
       onClick={onClick}
       type={type}
@@ -15,6 +16,3 @@ const MyButton = ({ children, type = 'submit', onClick, ...props }) => {
 };
 
 export default MyButton;
-
-
-

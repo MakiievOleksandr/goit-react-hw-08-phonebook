@@ -6,6 +6,12 @@ function Filter({ filter, onChangeFilter }) {
   return (
     <label>
       <TextField
+        sx={{
+          '& .MuiInputBase-input': {
+            border: '0',
+            padding: '10px',
+          },
+        }}
         placeholder="Find contacts by name"
         type="text"
         value={filter}

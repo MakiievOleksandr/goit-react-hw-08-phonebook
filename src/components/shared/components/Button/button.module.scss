@@ -1,4 +1,8 @@
 .button {
+  @media screen and (max-width: 320px) {
+    background-color: tomato;
+  }
+
   border: 1px, solid;
   border-radius: 5px;
   padding: 10px 15px;

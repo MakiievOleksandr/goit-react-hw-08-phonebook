@@ -4,17 +4,17 @@ import RegisterForm from 'components/modules/RegisterForm/RegisterForm';
 
 import { signup } from 'redux/auth/auth-operations';
 
+import css from './register-page.module.scss';
+
 const RegisterPage = () => {
   const dispatch = useDispatch();
   const handleSignup = data => {
     dispatch(signup(data));
-
-    console.log(data);
   };
 
   return (
     <>
-      <h1>Registration</h1>
+      <p className={css.text}>Don't have an account? Please, fill form</p>
       <RegisterForm onSubmit={handleSignup} />
     </>
   );

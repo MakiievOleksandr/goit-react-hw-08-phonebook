@@ -13,10 +13,10 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={css.form}>
+    <>
       <p className={css.text}>Please, enter your login data</p>
       <LoginForm onSubmit={handleSignup} />
-    </div>
+    </>
   );
 };
 
