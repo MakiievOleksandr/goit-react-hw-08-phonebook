@@ -52,11 +52,10 @@ const ContactForm = ({ onSubmit }) => {
           onChange={handleChange}
         />
       </label>
-      {name && (
-        <Button type="submit" style={css.addButton}>
-          Add
-        </Button>
-      )}
+
+      <Button type="submit" style={css.addButton}>
+        Add
+      </Button>
     </form>
   );
 };

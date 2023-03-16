@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import Section from '../Section/Section';
-import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 
@@ -17,6 +16,7 @@ import { getFilter } from 'redux/filter/filter-selectors';
 
 import css from './contacts.module.scss';
 import Button from 'components/shared/components/Button/Button';
+import BasicModal from 'components/shared/components/Modal/Modal/Modal';
 
 const Contacts = () => {
   const filteredContacts = useSelector(getfilteredContacts);
@@ -31,6 +31,7 @@ const Contacts = () => {
 
   const onAddContact = contactData => {
     dispatch(fetchAddContact(contactData));
+    setAddContactBtn(false);
   };
 
   const onDeleteContact = contactId => {
@@ -51,31 +52,14 @@ const Contacts = () => {
 
   return (
     <div className={css.wrapper}>
-      {addContactBtn && (
-        <Section
-          style={css.formal}
-          title="Add contact"
-          button={
-            <Button
-              // size="large"
-              onClick={handleAddContactBtn}
-              children={addContactBtn && 'Hide'}
-            />
-          }
-        >
-          <ContactForm onSubmit={onAddContact} />
-        </Section>
-      )}
       <Section
         title="Contacts"
         button={
-          !addContactBtn && (
-            <Button
-              // size={'small'}
-              onClick={handleAddContactBtn}
-              children={!addContactBtn && 'Add contact'}
-            />
-          )
+          <Button
+            // size={'small'}
+            onClick={handleAddContactBtn}
+            children={'Add contact'}
+          />
         }
       >
         <Filter filter={filter} onChangeFilter={changeFilter} />
@@ -84,6 +68,11 @@ const Contacts = () => {
           filteredContacts={filteredContacts}
         />
       </Section>
+      <BasicModal
+        onSubmit={onAddContact}
+        openBcdrp={addContactBtn}
+        onOpenBcdrp={setAddContactBtn}
+      />
     </div>
   );
 };
