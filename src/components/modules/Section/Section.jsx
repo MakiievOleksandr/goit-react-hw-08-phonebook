@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 import css from './section.module.scss';
 
 function Section({ title, children, ...props }) {

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Section from '../Section/Section';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
+import ContactForm from '../ContactForm/ContactForm';
 
 import {
   fetchAllContacts,
@@ -25,6 +26,7 @@ const Contacts = () => {
 
   const [addContactBtn, setAddContactBtn] = useState(false);
   const [filterField, setFilterField] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAllContacts());
@@ -55,6 +57,17 @@ const Contacts = () => {
     setFilterField(!filterField);
   };
 
+  const handleEditContact = data => {
+    console.log(openEdit);
+    setOpenEdit(true);
+    filteredContacts.filter(({ id, name }) => {
+      if (id === data) {
+        console.log(name);
+      }
+      return 'fail';
+    });
+  };
+
   return (
     <div className={`${css.wrapper}`}>
       <Section
@@ -74,13 +87,22 @@ const Contacts = () => {
         <ContactList
           onDeleteContact={onDeleteContact}
           filteredContacts={filteredContacts}
+          onEditContact={handleEditContact}
         />
       </Section>
       <BasicModal
-        onSubmit={onAddContact}
-        openBcdrp={addContactBtn}
-        onOpenBcdrp={setAddContactBtn}
-      />
+        title={'New contact'}
+        onToggle={addContactBtn}
+        setHandler={setAddContactBtn}
+      >
+        <ContactForm onSubmit={onAddContact} />
+      </BasicModal>
+
+      <BasicModal
+        title={'Contact"s name'}
+        // onToggle={openEdit}
+        setHandler={handleEditContact}
+      ></BasicModal>
     </div>
   );
 };

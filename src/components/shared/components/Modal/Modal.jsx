@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
-import ContactForm from 'components/modules/ContactForm/ContactForm';
+// import ContactForm from 'components/modules/ContactForm/ContactForm';
 
 import css from './modal.module.scss';
 
@@ -11,22 +11,21 @@ const style = {
   boxShadow: 24,
 };
 
-const BasicModal = ({ openBcdrp, onOpenBcdrp, onSubmit }) => {
+const BasicModal = ({ onToggle, setHandler, children, ...props }) => {
   const [open, setOpen] = useState(false);
-
   const handleOpen = () => setOpen(true);
   const handleClose = useCallback(() => {
     setOpen(false);
-    onOpenBcdrp(false);
-  }, [onOpenBcdrp]);
+    setHandler(false);
+  }, [setHandler]);
 
   useEffect(() => {
-    if (!openBcdrp) {
+    if (!onToggle) {
       handleClose();
       return;
     }
     handleOpen();
-  }, [handleClose, openBcdrp]);
+  }, [handleClose, onToggle]);
 
   return (
     <div>
@@ -37,8 +36,8 @@ const BasicModal = ({ openBcdrp, onOpenBcdrp, onSubmit }) => {
         aria-describedby="modal-modal-description"
       >
         <Box className={css.modal} sx={style}>
-          <h3 className={css.modalTitle}>New contact</h3>
-          <ContactForm onSubmit={onSubmit} />
+          <h3 className={css.modalTitle}>{props.title}</h3>
+          {children}
         </Box>
       </Modal>
     </div>

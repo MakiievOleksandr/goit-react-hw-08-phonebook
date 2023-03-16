@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
 import { List, SvgIcon } from '@mui/material';
-import { Clear } from '@mui/icons-material';
+import { Clear, Edit } from '@mui/icons-material';
 
 import { Person, Phone } from '@mui/icons-material';
 import css from './list-item.module.scss';
 
-function MyListItem({ onDeleteContact, contact }) {
+function MyListItem({ onDeleteContact, onEditContact, contact }) {
   return (
     <List className={css.listItem}>
       <p className={css.text}>
@@ -16,7 +16,6 @@ function MyListItem({ onDeleteContact, contact }) {
           </SvgIcon>
           <span className={css.data}>{contact.name}</span>
         </span>
-        <br />
         <span className={css.contactField}>
           <SvgIcon
             sx={{
@@ -28,21 +27,36 @@ function MyListItem({ onDeleteContact, contact }) {
           <span className={css.data}>{contact.number}</span>
         </span>
       </p>
-
-      <button
-        className={css.delBtn}
-        type="button"
-        onClick={() => onDeleteContact(contact.id)}
-      >
-        <SvgIcon
-          sx={{
-            fontSize: 20,
-            color: 'red',
-          }}
+      <div>
+        <button
+          className={css.delBtn}
+          type="button"
+          onClick={() => onDeleteContact(contact.id)}
         >
-          <Clear />
-        </SvgIcon>
-      </button>
+          <SvgIcon
+            sx={{
+              fontSize: 20,
+              color: 'red',
+            }}
+          >
+            <Clear />
+          </SvgIcon>
+        </button>
+        <button
+          className={css.editBtn}
+          type="button"
+          onClick={() => onEditContact(contact.id)}
+        >
+          <SvgIcon
+            sx={{
+              fontSize: 16,
+              color: 'green',
+            }}
+          >
+            <Edit />
+          </SvgIcon>
+        </button>
+      </div>
     </List>
   );
 }

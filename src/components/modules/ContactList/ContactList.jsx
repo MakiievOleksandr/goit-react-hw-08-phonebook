@@ -6,7 +6,7 @@ import { getfilteredContacts } from 'redux/contacts/contacts-selectors';
 
 import css from './contact-list.module.scss';
 
-function ContactList({ onDeleteContact }) {
+function ContactList({ onDeleteContact, onEditContact }) {
   const visible = useSelector(getfilteredContacts);
 
   return (
@@ -14,6 +14,7 @@ function ContactList({ onDeleteContact }) {
       {visible.map(contact => {
         return (
           <MyListItem
+            onEditContact={onEditContact}
             onDeleteContact={onDeleteContact}
             contact={contact}
             key={contact.id}
