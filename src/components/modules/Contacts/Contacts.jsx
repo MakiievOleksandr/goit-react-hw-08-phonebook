@@ -56,9 +56,9 @@ const Contacts = () => {
         title="Contacts"
         button={
           <Button
-            // size={'small'}
+            style={css.addContactBtn}
             onClick={handleAddContactBtn}
-            children={'Add contact'}
+            children={'Add new'}
           />
         }
       >

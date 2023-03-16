@@ -9,7 +9,6 @@ import css from './modal.module.scss';
 const style = {
   bgcolor: 'background.paper',
   boxShadow: 24,
-  p: 4,
 };
 
 const BasicModal = ({ openBcdrp, onOpenBcdrp, onSubmit }) => {
@@ -38,7 +37,7 @@ const BasicModal = ({ openBcdrp, onOpenBcdrp, onSubmit }) => {
         aria-describedby="modal-modal-description"
       >
         <Box className={css.modal} sx={style}>
-          <h3>New contact</h3>
+          <h3 className={css.modalTitle}>New contact</h3>
           <ContactForm onSubmit={onSubmit} />
         </Box>
       </Modal>

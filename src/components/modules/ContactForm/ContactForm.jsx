@@ -53,7 +53,7 @@ const ContactForm = ({ onSubmit }) => {
         />
       </label>
 
-      <Button type="submit" style={css.addButton}>
+      <Button type="submit" size="small" style={css.addButton}>
         Add
       </Button>
     </form>
