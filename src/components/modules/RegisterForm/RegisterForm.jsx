@@ -1,6 +1,6 @@
 import useForm from 'components/shared/hooks/useForm';
 import TextField from 'components/shared/components/TextField/TextField';
-import Button from 'components/shared/components/Button/Button';
+import { Button } from '@mui/material';
 
 import initialState from './initialState';
 import fields from './fields';
@@ -20,7 +20,7 @@ const RegisterForm = ({ onSubmit }) => {
         handleChange={handleChange}
         {...fields.password}
       />
-      <Button>Sign up</Button>
+      <Button onClick={handleSubmit}>Sign up</Button>
     </form>
   );
 };

@@ -1,6 +1,6 @@
 import useForm from 'components/shared/hooks/useForm';
 import MyTextField from 'components/shared/components/TextField/TextField';
-import MyButton from 'components/shared/components/Button/Button';
+import { Button } from '@mui/material';
 
 import initialState from './initialState';
 import fields from './fields';
@@ -19,9 +19,7 @@ const LoginForm = ({ onSubmit }) => {
         onChange={handleChange}
         {...fields.password}
       />
-      <MyButton variant="contained" className={css.btn}>
-        Login
-      </MyButton>
+      <Button onClick={handleSubmit}>Login</Button>
     </form>
   );
 };

@@ -15,8 +15,8 @@ import { getfilteredContacts } from 'redux/contacts/contacts-selectors';
 import { getFilter } from 'redux/filter/filter-selectors';
 
 import css from './contacts.module.scss';
-import Button from 'components/shared/components/Button/Button';
-import BasicModal from 'components/shared/components/Modal/Modal/Modal';
+import { Button } from '@mui/material';
+import BasicModal from 'components/shared/components/Modal/Modal';
 
 const Contacts = () => {
   const filteredContacts = useSelector(getfilteredContacts);
@@ -24,6 +24,7 @@ const Contacts = () => {
   const dispatch = useDispatch();
 
   const [addContactBtn, setAddContactBtn] = useState(false);
+  const [filterField, setFilterField] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAllContacts());
@@ -50,19 +51,26 @@ const Contacts = () => {
     setAddContactBtn(!addContactBtn);
   };
 
+  const handleFilterField = () => {
+    setFilterField(!filterField);
+  };
+
   return (
-    <div className={css.wrapper}>
+    <div className={`${css.wrapper}`}>
       <Section
         title="Contacts"
         button={
-          <Button
-            style={css.addContactBtn}
-            onClick={handleAddContactBtn}
-            children={'Add new'}
-          />
+          <>
+            <Button onClick={handleFilterField} children={'Filter'} />
+            <Button onClick={handleAddContactBtn} children={'Add new'} />
+          </>
         }
       >
-        <Filter filter={filter} onChangeFilter={changeFilter} />
+        <Filter
+          filter={filter}
+          onChangeFilter={changeFilter}
+          setFF={filterField}
+        />
         <ContactList
           onDeleteContact={onDeleteContact}
           filteredContacts={filteredContacts}

@@ -2,11 +2,14 @@ import PropTypes from 'prop-types';
 
 import TextField from 'components/shared/components/TextField/TextField';
 
-function Filter({ filter, onChangeFilter }) {
+function Filter({ filter, onChangeFilter, setFF }) {
+  const ff = setFF ? 'none' : 'block';
+
   return (
-    <label>
+    <>
       <TextField
         sx={{
+          display: `${ff}`,
           '& .MuiInputBase-input': {
             border: '0',
             padding: '10px',
@@ -19,7 +22,7 @@ function Filter({ filter, onChangeFilter }) {
         onChange={onChangeFilter}
         autoComplete="off"
       />
-    </label>
+    </>
   );
 }
 

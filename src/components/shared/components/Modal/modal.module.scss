@@ -8,10 +8,11 @@
     padding: 10px;
   }
   @media screen and (min-width: 321px) {
-    width: calc(100vw - 50vw);
+    width: calc(100vw - 40vw);
   }
   @media screen and (min-width: 721px) {
     width: 400px;
+    padding: 30px;
   }
   padding: 20px;
   border: 0;

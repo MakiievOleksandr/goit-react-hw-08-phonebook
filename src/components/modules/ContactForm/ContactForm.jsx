@@ -6,7 +6,7 @@ import TextField from 'components/shared/components/TextField/TextField';
 import initialState from './initialState';
 
 import css from './contacts-form.module.scss';
-import Button from 'components/shared/components/Button/Button';
+import { Button } from '@mui/material';
 
 const ContactForm = ({ onSubmit }) => {
   const [formState, setFormState] = useState({ ...initialState });
@@ -27,7 +27,7 @@ const ContactForm = ({ onSubmit }) => {
   const { name, number } = formState;
 
   return (
-    <form onSubmit={handleSubmit} className={css.form}>
+    <form className={css.form}>
       <label className={css.label}>
         <TextField
           type="text"
@@ -53,9 +53,7 @@ const ContactForm = ({ onSubmit }) => {
         />
       </label>
 
-      <Button type="submit" size="small" style={css.addButton}>
-        Add
-      </Button>
+      <Button onClick={handleSubmit}>Add</Button>
     </form>
   );
 };

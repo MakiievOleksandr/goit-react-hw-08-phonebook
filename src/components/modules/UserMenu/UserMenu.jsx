@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import Button from 'components/shared/components/Button/Button';
+import { Button } from '@mui/material';
 
 import { logout } from 'redux/auth/auth-operations';
 import { getUser } from 'redux/auth/auth-selector';
@@ -21,7 +21,7 @@ const UserMenu = () => {
   return (
     <div className={css.userMenu}>
       <p className={css.userName}>{name}</p>
-      <Button style={css.outBtn} onClick={onLogout}>
+      <Button onClick={onLogout}>
         <SvgIcon>
           <LogoutRounded />
         </SvgIcon>

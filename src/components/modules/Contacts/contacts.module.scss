@@ -1,11 +1,13 @@
 .wrapper {
   @media screen and (min-width: 480px) {
+    padding: 20px;
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 20px;
   }
   @media screen and (min-width: 720px) {
+    padding: 30px;
     gap: 30px;
   }
   @media screen and (max-width: 320px) {
@@ -15,7 +17,7 @@
     flex-direction: column;
     align-items: center;
   }
-  padding: 30px 10px;
+  padding: 10px 10px;
 }
 
 .formal {
