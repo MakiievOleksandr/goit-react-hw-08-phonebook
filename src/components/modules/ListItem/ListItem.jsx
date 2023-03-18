@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 
 import { List, SvgIcon } from '@mui/material';
-import { Clear, Edit } from '@mui/icons-material';
+import { Edit } from '@mui/icons-material';
+
+import AlertDialog from 'components/shared/components/Dialog/Dialog';
 
 import { Person, Phone } from '@mui/icons-material';
 import css from './list-item.module.scss';
@@ -28,20 +30,7 @@ function MyListItem({ onDeleteContact, onEditContact, contact }) {
         </span>
       </p>
       <div>
-        <button
-          className={css.delBtn}
-          type="button"
-          onClick={() => onDeleteContact(contact.id)}
-        >
-          <SvgIcon
-            sx={{
-              fontSize: 20,
-              color: 'red',
-            }}
-          >
-            <Clear />
-          </SvgIcon>
-        </button>
+        <AlertDialog onDeleteContact={onDeleteContact} contact={contact} />
         <button
           className={css.editBtn}
           type="button"

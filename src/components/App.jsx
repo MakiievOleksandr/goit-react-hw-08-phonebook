@@ -9,6 +9,7 @@ import PrivateRoute from './modules/PrivateRoute/PrivateRoute';
 import PublicRoute from './modules/PublicRoute/PublicRoute';
 
 import AuthLayout from './modules/AuthLayout/AuthLayout';
+import Loader from './shared/components/Skeleton/Loader';
 
 const Navigation = lazy(() => import('./modules/Navigation/Navigation'));
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
@@ -22,7 +23,7 @@ const App = () => {
       <PersistGate loading={null} persistor={persistor}>
         <AuthLayout>
           <BrowserRouter basename="/goit-react-hw-08-phonebook">
-            <Suspense fallback={<p>...Loading</p>}>
+            <Suspense fallback={<Loader />}>
               <Navigation />
               <Routes>
                 <Route path="/" element={<MainPage />} />

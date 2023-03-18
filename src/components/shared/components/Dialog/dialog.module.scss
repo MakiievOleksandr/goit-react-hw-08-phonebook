@@ -1,0 +1,20 @@
+.delBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  &:hover:after {
+    content: 'Delete';
+    // transition: transform 500ms linear;
+    // opacity: 1;
+    position: absolute;
+    right: -50px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #f7caca;
+  }
+}

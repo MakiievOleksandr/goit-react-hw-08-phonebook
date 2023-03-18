@@ -24,7 +24,6 @@ const Navigation = () => {
             >
               <Contacts />
             </SvgIcon>
-            {/* Contacts */}
           </NavLink>
           <UserMenu />
         </>

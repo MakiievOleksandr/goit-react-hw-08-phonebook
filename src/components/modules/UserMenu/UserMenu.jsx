@@ -1,31 +1,33 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { Button } from '@mui/material';
+import { SvgIcon } from '@mui/material';
+import { Menu } from '@mui/icons-material';
 
-import { logout } from 'redux/auth/auth-operations';
+import BasicMenu from 'components/shared/components/Menu/Menu';
+import LogoutButton from './LogoutButton/LogoutButton';
+
 import { getUser } from 'redux/auth/auth-selector';
 
-import { LogoutRounded } from '@mui/icons-material';
-
 import css from './user-menu.module.scss';
-import { SvgIcon } from '@mui/material';
 
 const UserMenu = () => {
   const { name } = useSelector(getUser);
-  const dispatch = useDispatch();
 
-  const onLogout = () => {
-    dispatch(logout());
-    return;
-  };
   return (
     <div className={css.userMenu}>
       <p className={css.userName}>{name}</p>
-      <Button onClick={onLogout}>
-        <SvgIcon>
-          <LogoutRounded />
-        </SvgIcon>
-      </Button>
+      <BasicMenu
+        hamburger={
+          <SvgIcon
+            sx={{
+              color: '#1976d2',
+            }}
+          >
+            <Menu />
+          </SvgIcon>
+        }
+      />
+      {/* <LogoutButton /> */}
     </div>
   );
 };
