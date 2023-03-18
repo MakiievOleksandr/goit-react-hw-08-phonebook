@@ -5,6 +5,7 @@ import Section from '../Section/Section';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 import ContactForm from '../ContactForm/ContactForm';
+import EditContact from '../EditContact/EditContact';
 
 import {
   fetchAllContacts,
@@ -27,6 +28,7 @@ const Contacts = () => {
   const [addContactBtn, setAddContactBtn] = useState(false);
   const [filterField, setFilterField] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+  const [dataForEdit, setDataForEdit] = useState(null);
 
   useEffect(() => {
     dispatch(fetchAllContacts());
@@ -58,11 +60,13 @@ const Contacts = () => {
   };
 
   const handleEditContact = data => {
-    console.log(openEdit);
-    setOpenEdit(true);
-    filteredContacts.filter(({ id, name }) => {
+    setOpenEdit(false);
+    setDataForEdit(data);
+    filteredContacts.filter(contact => {
+      const { id } = contact;
       if (id === data) {
-        console.log(name);
+        setOpenEdit(!openEdit);
+        return contact;
       }
       return 'fail';
     });
@@ -100,9 +104,15 @@ const Contacts = () => {
 
       <BasicModal
         title={'Contact"s name'}
-        // onToggle={openEdit}
+        onToggle={openEdit}
         setHandler={handleEditContact}
-      ></BasicModal>
+      >
+        <EditContact
+          data={dataForEdit}
+          onSubmit={onAddContact}
+          // deleter={onDeleteContact}
+        />
+      </BasicModal>
     </div>
   );
 };

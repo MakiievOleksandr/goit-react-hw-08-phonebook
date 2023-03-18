@@ -45,7 +45,10 @@ function MyListItem({ onDeleteContact, onEditContact, contact }) {
         <button
           className={css.editBtn}
           type="button"
-          onClick={() => onEditContact(contact.id)}
+          onClick={function () {
+            onEditContact(contact.id);
+            // onDeleteContact(contact.id);
+          }}
         >
           <SvgIcon
             sx={{

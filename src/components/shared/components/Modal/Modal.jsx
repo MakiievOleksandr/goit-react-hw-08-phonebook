@@ -14,6 +14,7 @@ const style = {
 const BasicModal = ({ onToggle, setHandler, children, ...props }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
+
   const handleClose = useCallback(() => {
     setOpen(false);
     setHandler(false);
