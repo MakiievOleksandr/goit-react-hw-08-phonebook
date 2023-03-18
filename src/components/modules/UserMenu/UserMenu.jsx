@@ -4,7 +4,7 @@ import { SvgIcon } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 
 import BasicMenu from 'components/shared/components/Menu/Menu';
-import LogoutButton from './LogoutButton/LogoutButton';
+// import LogoutButton from './LogoutButton/LogoutButton';
 
 import { getUser } from 'redux/auth/auth-selector';
 
