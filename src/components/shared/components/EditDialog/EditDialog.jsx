@@ -20,7 +20,7 @@ export default function EditDialog({ onSubmit }) {
   return (
     <div>
       <Button onClick={handleClickOpen} fullWidth>
-        Edit
+        Save
       </Button>
       <Dialog
         open={open}

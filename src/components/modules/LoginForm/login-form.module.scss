@@ -3,6 +3,10 @@
     width: 200px;
     padding: 15px;
   }
+  background-image: url('../../../../assets/images/dirty-sheet-cut.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: border-box;
 
   @media screen and (min-width: 720px) {
     max-width: 500px;
@@ -14,6 +18,9 @@
   margin-right: auto;
   border: 1px solid;
   border-radius: 5px;
+}
+
+.back {
 }
 
 .btn {

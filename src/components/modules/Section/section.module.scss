@@ -12,7 +12,13 @@
     width: 400px;
     padding: 50px;
   }
+  background-image: url('../../../../assets/images/dirty-sheet-cut.jpg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
   max-width: 300px;
+  // max-height: 500px;
+  // overflow: auto;
   padding: 20px;
   margin-bottom: 30px;
   border: 1px solid black;

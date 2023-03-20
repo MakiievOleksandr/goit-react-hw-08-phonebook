@@ -10,11 +10,15 @@ const MainPage = () => {
 
   if (!isLogin) {
     return (
-      <div className={css.welcomeText}>
-        <h2>
-          Welcome, Visitor!
-          <br /> This app is for storing your private contacts!
-        </h2>
+      <div className={css.container}>
+        <div className={css.main}>
+          <div className={css.welcomeText}>
+            <h2>
+              Welcome, Visitor!
+              <br /> This app is for storing your private contacts!
+            </h2>
+          </div>
+        </div>
       </div>
     );
   }

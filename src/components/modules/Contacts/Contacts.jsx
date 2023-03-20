@@ -80,8 +80,9 @@ const Contacts = () => {
   };
 
   return (
-    <div className={`${css.wrapper}`}>
+    <div className={css.wrapper}>
       <Section
+        style={css.secion}
         title="Contacts"
         button={
           <>

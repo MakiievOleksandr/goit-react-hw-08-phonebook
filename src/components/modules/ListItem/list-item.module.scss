@@ -8,11 +8,13 @@
 }
 
 .listItem:nth-child(2n) {
-  background-color: azure;
+  // background-color: rgb(243, 235, 204);
+  opacity: 0.6;
 }
 
 .text {
   font-weight: 500;
+  font-style: italic;
   @media screen and (max-width: 320px) {
     font-size: 12px;
   }

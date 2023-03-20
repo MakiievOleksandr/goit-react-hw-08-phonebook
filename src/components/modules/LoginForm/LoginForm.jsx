@@ -13,13 +13,15 @@ const LoginForm = ({ onSubmit }) => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      <MyTextField value={email} onChange={handleChange} {...fields.email} />
-      <MyTextField
-        value={password}
-        onChange={handleChange}
-        {...fields.password}
-      />
-      <Button onClick={handleSubmit}>Login</Button>
+      <div className={css.back}>
+        <MyTextField value={email} onChange={handleChange} {...fields.email} />
+        <MyTextField
+          value={password}
+          onChange={handleChange}
+          {...fields.password}
+        />
+        <Button onClick={handleSubmit}>Login</Button>
+      </div>
     </form>
   );
 };
