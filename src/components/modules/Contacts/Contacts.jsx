@@ -11,6 +11,7 @@ import {
   fetchAllContacts,
   fetchAddContact,
   fetchDeleteContact,
+  fetchEditContact,
 } from 'redux/contacts/contacts-operations';
 import { setFilter } from 'redux/filter/filter-slice';
 import { getfilteredContacts } from 'redux/contacts/contacts-selectors';
@@ -36,6 +37,7 @@ const Contacts = () => {
 
   const onAddContact = contactData => {
     dispatch(fetchAddContact(contactData));
+    // console.log('contactData:', contactData);
     setAddContactBtn(false);
   };
 
@@ -59,9 +61,12 @@ const Contacts = () => {
     setFilterField(!filterField);
   };
 
-  const handleEditContact = data => {
+  const handleOpenEditForm = data => {
+    //в data приходить id контакта
+    // console.log(data);
     setOpenEdit(false);
     setDataForEdit(data);
+
     filteredContacts.filter(contact => {
       const { id } = contact;
       if (id === data) {
@@ -70,6 +75,12 @@ const Contacts = () => {
       }
       return 'fail';
     });
+  };
+
+  const handleEditContact = contactId => {
+    dispatch(fetchEditContact(contactId));
+    setOpenEdit(false); //із форми редагування приходять всі данні контакта
+    // console.log(contactId);
   };
 
   return (
@@ -91,7 +102,7 @@ const Contacts = () => {
         <ContactList
           onDeleteContact={onDeleteContact}
           filteredContacts={filteredContacts}
-          onEditContact={handleEditContact}
+          onEditContact={handleOpenEditForm}
         />
       </Section>
       <BasicModal
@@ -105,11 +116,11 @@ const Contacts = () => {
       <BasicModal
         title={'Contact"s name'}
         onToggle={openEdit}
-        setHandler={handleEditContact}
+        setHandler={handleOpenEditForm}
       >
         <EditContact
           data={dataForEdit}
-          onSubmit={onAddContact}
+          onSubmit={handleEditContact}
           // deleter={onDeleteContact}
         />
       </BasicModal>

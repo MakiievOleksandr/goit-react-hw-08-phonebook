@@ -17,8 +17,10 @@ export const fetchAllContacts = createAsyncThunk(
 export const fetchAddContact = createAsyncThunk(
   'contact/add',
   async (data, { rejectWithValue }) => {
+    // console.log('data:', data);
     try {
       const result = await api.addContact(data);
+      // console.log('result:', result);
       return result;
     } catch ({ response }) {
       return rejectWithValue(response.data.message);
@@ -46,6 +48,22 @@ export const fetchDeleteContact = createAsyncThunk(
     try {
       await api.deleteContact(id);
       return id;
+    } catch ({ response }) {
+      return rejectWithValue(response.data.message);
+    }
+  }
+);
+
+export const fetchEditContact = createAsyncThunk(
+  'contact/patch',
+  async (data, { rejectWithValue }) => {
+    // console.log(data);
+    // console.log(id); //приходять всі данні контакта з Contacts.jsx
+    try {
+      const result = await api.editContact(data);
+      // console.log(data);
+      // console.log(result);
+      return result;
     } catch ({ response }) {
       return rejectWithValue(response.data.message);
     }

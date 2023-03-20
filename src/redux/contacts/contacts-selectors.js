@@ -1,8 +1,3 @@
-// const getContacts = ({ contacts }) => {
-//   console.log(contacts);
-//   return contacts.items;
-// };
-
 export const getfilteredContacts = ({ contacts, filter }) => {
   const copySortArr = [...contacts.items];
   const sortedContacts = copySortArr.sort((a, b) => {

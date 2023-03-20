@@ -21,6 +21,7 @@ const ContactForm = ({ onSubmit }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     onSubmit({ ...formState });
+    // console.log('formState:', formState);
     setFormState({ ...initialState });
   };
 

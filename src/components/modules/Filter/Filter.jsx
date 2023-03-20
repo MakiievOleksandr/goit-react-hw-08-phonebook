@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TextField from 'components/shared/components/TextField/TextField';
 
 function Filter({ filter, onChangeFilter, setFF }) {
-  const ff = setFF ? 'none' : 'block';
+  const ff = setFF ? 'block' : 'none';
 
   return (
     <>

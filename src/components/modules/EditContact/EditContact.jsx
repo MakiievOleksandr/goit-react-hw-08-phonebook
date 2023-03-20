@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 import { Button } from '@mui/material';
 import MyTextField from 'components/shared/components/TextField/TextField';
+import EditDialog from 'components/shared/components/EditDialog/EditDialog';
 
 import { getfilteredContacts } from 'redux/contacts/contacts-selectors';
 import initialState from './initialState';
@@ -10,6 +11,7 @@ import initialState from './initialState';
 import css from './edit-contact.module.scss';
 
 const EditContact = ({ data, onSubmit }) => {
+  // console.log(data); //id контакта
   const contacts = useSelector(getfilteredContacts);
   const [contactData, setContactData] = useState({ ...initialState });
 
@@ -24,7 +26,6 @@ const EditContact = ({ data, onSubmit }) => {
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
-    console.log(value);
     setContactData(prevState => {
       return { ...prevState, [name]: value };
     });
@@ -32,7 +33,8 @@ const EditContact = ({ data, onSubmit }) => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    onSubmit({ ...contactData });
+    onSubmit({ ...contactData }); //всі дані контакта (id, name, number)
+    // console.log(contactData);
     setContactData({ ...initialState });
   };
 
@@ -65,7 +67,7 @@ const EditContact = ({ data, onSubmit }) => {
         />
       </label>
 
-      <Button onClick={handleSubmit}>Save</Button>
+      <EditDialog onSubmit={handleSubmit} />
     </form>
   );
 };

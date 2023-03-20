@@ -4,6 +4,7 @@ import {
   fetchAllContacts,
   fetchAddContact,
   fetchDeleteContact,
+  fetchEditContact,
 } from './contacts-operations';
 
 const initialState = {
@@ -33,6 +34,7 @@ const contactsSlice = createSlice({
       })
       .addCase(fetchAddContact.fulfilled, (store, { payload }) => {
         store.isLoading = false;
+        // console.log('payload:', payload);
         store.items.push(payload);
       })
       .addCase(fetchAddContact.rejected, (store, { payload }) => {
@@ -48,6 +50,19 @@ const contactsSlice = createSlice({
         store.items.splice(idx, 1);
       })
       .addCase(fetchDeleteContact.rejected, (store, { payload }) => {
+        store.isLoading = false;
+        store.error = payload;
+      })
+      .addCase(fetchEditContact.pending, store => {
+        store.isLoading = true;
+      })
+      .addCase(fetchEditContact.fulfilled, (store, { payload }) => {
+        store.isLoading = false;
+        const idx = store.items.findIndex(item => item.id === payload.id);
+        store.items.splice(idx, 1);
+        store.items.push(payload);
+      })
+      .addCase(fetchEditContact.rejected, (store, { payload }) => {
         store.isLoading = false;
         store.error = payload;
       });
