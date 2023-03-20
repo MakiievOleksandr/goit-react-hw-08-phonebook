@@ -4,7 +4,6 @@ import { List, SvgIcon } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 
 import AlertDialog from 'components/shared/components/Dialog/Dialog';
-// import EditDialog from 'components/shared/components/EditDialog/EditDialog';
 
 import { Person, Phone } from '@mui/icons-material';
 import css from './list-item.module.scss';
@@ -32,7 +31,6 @@ function MyListItem({ onDeleteContact, onEditContact, contact }) {
       </p>
       <div>
         <AlertDialog onDeleteContact={onDeleteContact} contact={contact} />
-        {/* <EditDialog /> */}
         <button
           className={css.editBtn}
           type="button"

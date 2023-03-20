@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 
-import { Button } from '@mui/material';
 import MyTextField from 'components/shared/components/TextField/TextField';
 import EditDialog from 'components/shared/components/EditDialog/EditDialog';
 
@@ -11,7 +10,6 @@ import initialState from './initialState';
 import css from './edit-contact.module.scss';
 
 const EditContact = ({ data, onSubmit }) => {
-  // console.log(data); //id контакта
   const contacts = useSelector(getfilteredContacts);
   const [contactData, setContactData] = useState({ ...initialState });
 
@@ -34,7 +32,6 @@ const EditContact = ({ data, onSubmit }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     onSubmit({ ...contactData }); //всі дані контакта (id, name, number)
-    // console.log(contactData);
     setContactData({ ...initialState });
   };
 

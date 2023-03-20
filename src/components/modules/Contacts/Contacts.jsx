@@ -37,7 +37,6 @@ const Contacts = () => {
 
   const onAddContact = contactData => {
     dispatch(fetchAddContact(contactData));
-    // console.log('contactData:', contactData);
     setAddContactBtn(false);
   };
 
@@ -62,8 +61,6 @@ const Contacts = () => {
   };
 
   const handleOpenEditForm = data => {
-    //в data приходить id контакта
-    // console.log(data);
     setOpenEdit(false);
     setDataForEdit(data);
 
@@ -80,7 +77,6 @@ const Contacts = () => {
   const handleEditContact = contactId => {
     dispatch(fetchEditContact(contactId));
     setOpenEdit(false); //із форми редагування приходять всі данні контакта
-    // console.log(contactId);
   };
 
   return (
@@ -118,11 +114,7 @@ const Contacts = () => {
         onToggle={openEdit}
         setHandler={handleOpenEditForm}
       >
-        <EditContact
-          data={dataForEdit}
-          onSubmit={handleEditContact}
-          // deleter={onDeleteContact}
-        />
+        <EditContact data={dataForEdit} onSubmit={handleEditContact} />
       </BasicModal>
     </div>
   );
