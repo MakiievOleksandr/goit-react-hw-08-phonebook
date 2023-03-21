@@ -14,9 +14,12 @@ const LogoutButton = () => {
   };
   return (
     <Button onClick={onLogout}>
-      {/* <p>Logout</p> */}
       <SvgIcon>
-        <LogoutRounded />
+        <LogoutRounded
+          sx={{
+            fontSize: 15,
+          }}
+        />
       </SvgIcon>
     </Button>
   );

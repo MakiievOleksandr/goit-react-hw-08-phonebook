@@ -6,6 +6,8 @@ import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 import ContactForm from '../ContactForm/ContactForm';
 import EditContact from '../EditContact/EditContact';
+// import MediaQuery from 'components/shared/BreakePoint/BreakePoint';
+import BasicModal from 'components/shared/components/Modal/Modal';
 
 import {
   fetchAllContacts,
@@ -17,9 +19,9 @@ import { setFilter } from 'redux/filter/filter-slice';
 import { getfilteredContacts } from 'redux/contacts/contacts-selectors';
 import { getFilter } from 'redux/filter/filter-selectors';
 
+import { IconButton } from '@mui/material';
+import { PersonSearchRounded, PersonAddRounded } from '@mui/icons-material';
 import css from './contacts.module.scss';
-import { Button } from '@mui/material';
-import BasicModal from 'components/shared/components/Modal/Modal';
 
 const Contacts = () => {
   const filteredContacts = useSelector(getfilteredContacts);
@@ -86,8 +88,21 @@ const Contacts = () => {
         title="Contacts"
         button={
           <>
-            <Button onClick={handleFilterField} children={'Filter'} />
-            <Button onClick={handleAddContactBtn} children={'Add new'} />
+            <IconButton
+              onClick={handleFilterField}
+              color="inherit"
+              // children={'Filter'}
+            >
+              <PersonSearchRounded />
+            </IconButton>
+
+            <IconButton
+              onClick={handleAddContactBtn}
+              color="inherit"
+              // children={'Add new'}
+            >
+              <PersonAddRounded />
+            </IconButton>
           </>
         }
       >

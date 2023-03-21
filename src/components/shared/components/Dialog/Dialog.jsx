@@ -24,11 +24,7 @@ export default function AlertDialog({ onDeleteContact, contact }) {
 
   return (
     <div>
-      <button
-        className={css.delBtn}
-        variant="outlined"
-        onClick={handleClickOpen}
-      >
+      <button className={css.delBtn} onClick={handleClickOpen}>
         <SvgIcon
           sx={{
             fontSize: 20,

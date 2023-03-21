@@ -1,13 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { SvgIcon } from '@mui/material';
-import { Contacts } from '@mui/icons-material';
+// import { IconButton } from '@mui/material';
+// import { Contacts } from '@mui/icons-material';
 
 import { isUserLogin } from 'redux/auth/auth-selector';
 
 import UserMenu from '../UserMenu/UserMenu';
-
 import css from './navigation.module.scss';
 
 const Navigation = () => {
@@ -16,15 +15,11 @@ const Navigation = () => {
     <div className={css.navbar}>
       {isLogin ? (
         <>
-          <NavLink className={`${css.link} ${css.navText}`} to="/contacts">
-            <SvgIcon
-              sx={{
-                color: '#1976d2',
-              }}
-            >
+          {/* <NavLink to="/contacts">
+            <IconButton>
               <Contacts />
-            </SvgIcon>
-          </NavLink>
+            </IconButton>
+          </NavLink> */}
           <UserMenu />
         </>
       ) : (

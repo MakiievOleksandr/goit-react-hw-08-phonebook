@@ -17,11 +17,7 @@ const UserMenu = () => {
       <p className={css.userName}>{name}</p>
       <BasicMenu
         hamburger={
-          <SvgIcon
-            sx={{
-              color: '#1976d2',
-            }}
-          >
+          <SvgIcon>
             <Menu />
           </SvgIcon>
         }

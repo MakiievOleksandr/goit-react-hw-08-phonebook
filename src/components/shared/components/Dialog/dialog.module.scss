@@ -7,14 +7,19 @@
   background-color: transparent;
   border: 0;
   cursor: pointer;
-  &:hover:after {
+  &::after {
     content: 'Delete';
-    // transition: transform 500ms linear;
-    // opacity: 1;
+    color: red;
+    font-style: italic;
+    font-weight: bold;
     position: absolute;
-    right: -50px;
+    right: -40px;
     padding: 5px;
     border-radius: 5px;
-    background-color: #f7caca;
+    opacity: 0;
+    transition: 300ms linear;
+  }
+  &:hover::after {
+    opacity: 1;
   }
 }

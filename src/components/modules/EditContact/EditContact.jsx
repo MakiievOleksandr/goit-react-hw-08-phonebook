@@ -64,7 +64,7 @@ const EditContact = ({ data, onSubmit }) => {
         />
       </label>
 
-      <EditDialog onSubmit={handleSubmit} />
+      <EditDialog onSubmit={handleSubmit} title="Save" children />
     </form>
   );
 };
