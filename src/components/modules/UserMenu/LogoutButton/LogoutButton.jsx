@@ -5,7 +5,7 @@ import { LogoutRounded } from '@mui/icons-material';
 
 import { logout } from 'redux/auth/auth-operations';
 
-const LogoutButton = () => {
+const LogoutButton = ({ children }) => {
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -13,13 +13,17 @@ const LogoutButton = () => {
     return;
   };
   return (
-    <Button onClick={onLogout}>
+    <Button
+      color="warning"
+      sx={{
+        padding: 0,
+        fontSize: 14,
+      }}
+      onClick={onLogout}
+    >
+      {children}
       <SvgIcon>
-        <LogoutRounded
-          sx={{
-            fontSize: 15,
-          }}
-        />
+        <LogoutRounded />
       </SvgIcon>
     </Button>
   );

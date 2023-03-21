@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from 'components/modules/UserMenu/LogoutButton/LogoutButton';
 
 import { ContactsRounded, HomeRounded } from '@mui/icons-material';
+import css from './menu.module.scss';
 
 export default function BasicMenu({ hamburger }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,6 +24,7 @@ export default function BasicMenu({ hamburger }) {
   return (
     <div>
       <Button
+        color="inherit"
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
@@ -40,54 +42,15 @@ export default function BasicMenu({ hamburger }) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <NavLink
-          style={{
-            textDecoration: 'none',
-          }}
-          to="/"
-          onClick={handleClose}
-        >
-          <MenuItem
-            dense={true}
-            sx={{
-              color: '#000000',
-              paddingTop: 0,
-              paddingBottom: 0,
-            }}
-          >
-            <p
-              style={{
-                margin: '0 30px 0 0',
-              }}
-            >
-              Home
-            </p>
+        <NavLink className={css.link} to="/" onClick={handleClose}>
+          <MenuItem dense={true} className={css.menuItem}>
+            <p className={css.title}>Home</p>
             <HomeRounded />
           </MenuItem>
         </NavLink>
-        <NavLink
-          style={{
-            textDecoration: 'none',
-          }}
-          to="/contacts"
-          onClick={handleClose}
-        >
-          <MenuItem
-            dense={true}
-            divider={true}
-            sx={{
-              color: '#000000',
-              paddingTop: 0,
-              paddingBottom: 0,
-            }}
-          >
-            <p
-              style={{
-                margin: '0 13px 0 0',
-              }}
-            >
-              Contacts
-            </p>
+        <NavLink className={css.link} to="/contacts" onClick={handleClose}>
+          <MenuItem dense={true} divider={true} className={css.menuItem}>
+            <p className={css.title}>Contacts</p>
             <ContactsRounded
               sx={{
                 fontSize: 20,
@@ -95,21 +58,16 @@ export default function BasicMenu({ hamburger }) {
             />
           </MenuItem>
         </NavLink>
-        <MenuItem dense={true} onClick={handleClose}>
+        <MenuItem className={css.menuItem} dense={true} onClick={handleClose}>
           Theme
         </MenuItem>
-        <MenuItem dense={true} onClick={handleClose}>
+        <MenuItem className={css.menuItem} dense={true} onClick={handleClose}>
           Language
         </MenuItem>
-        <MenuItem dense={true} onClick={handleClose}>
-          <p
-            style={{
-              margin: '0 10px 0 0',
-            }}
-          >
-            Logout
-          </p>
-          <LogoutButton />
+        <MenuItem className={css.menuItem} dense={true} onClick={handleClose}>
+          <LogoutButton>
+            <p className={css.title}>Logout</p>
+          </LogoutButton>
         </MenuItem>
       </Menu>
     </div>
