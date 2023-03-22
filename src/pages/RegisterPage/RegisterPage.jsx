@@ -13,10 +13,10 @@ const RegisterPage = () => {
   };
 
   return (
-    <>
+    <div className={css.container}>
       <p className={css.text}>Don't have an account? Please, fill form</p>
       <RegisterForm onSubmit={handleSignup} />
-    </>
+    </div>
   );
 };
 

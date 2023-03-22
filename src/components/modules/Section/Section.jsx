@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 // import MediaQuery from 'components/shared/BreakePoint/BreakePoint';
-
 import css from './section.module.scss';
 
 function Section({ title, children, ...props }) {

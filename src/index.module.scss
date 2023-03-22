@@ -3,15 +3,13 @@
 
 body {
   margin: 0;
-
-  @media screen and (max-width: 320px) {
-    padding: 0 15px;
-  }
-
-  @media screen and (min-width: 720px) {
-    padding: 0 50px;
-  }
-  padding: 0 30px;
+  padding: 0;
+  background-image: url('../assets/images/sun-tornado-dark.svg'); /* background by SVGBackgrounds.com */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 21px);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

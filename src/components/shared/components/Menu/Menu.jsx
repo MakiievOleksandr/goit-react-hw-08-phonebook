@@ -24,7 +24,9 @@ export default function BasicMenu({ hamburger }) {
   return (
     <div>
       <Button
-        color="inherit"
+        sx={{
+          color: 'rgb(253, 183, 195)',
+        }}
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"

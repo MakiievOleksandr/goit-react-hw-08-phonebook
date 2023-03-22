@@ -40,13 +40,16 @@ export default function AlertDialog({ onDeleteContact, contact }) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title"></DialogTitle>
-        <DialogContent>
+        <DialogTitle
+          className={css.paper}
+          id="alert-dialog-title"
+        ></DialogTitle>
+        <DialogContent className={css.paper}>
           <DialogContentText id="alert-dialog-description">
             Are you sure that you want to delete this contact?
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <DialogActions className={css.paper}>
           <Button onClick={handleClose}>Cansel</Button>
           <Button onClick={() => onDeleteContact(contact.id)} autoFocus>
             Delete

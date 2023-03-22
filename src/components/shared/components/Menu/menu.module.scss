@@ -1,3 +1,5 @@
+@import '../../../../variables.scss';
+
 .link:global(.active)p {
   font-weight: bold;
 }
@@ -12,8 +14,12 @@
 }
 
 .menuItem {
+  background-image: url('../../../../../assets/images/dirty-sheet-cut.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: space-between;
-  color: #000000;
+  color: $primariy-bcg-color;
   padding: 0 10px;
 }
