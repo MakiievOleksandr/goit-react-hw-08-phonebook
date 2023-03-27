@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import MyTextField from 'components/shared/components/TextField/TextField';
 import EditDialog from 'components/shared/components/EditDialog/EditDialog';
 
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import { getfilteredContacts } from 'redux/contacts/contacts-selectors';
 import initialState from './initialState';
 
@@ -33,6 +35,7 @@ const EditContact = ({ data, onSubmit }) => {
     evt.preventDefault();
     onSubmit({ ...contactData }); //всі дані контакта (id, name, number)
     setContactData({ ...initialState });
+    Notify.success('Changes was successfully saved!');
   };
 
   const { name, number } = contactData;

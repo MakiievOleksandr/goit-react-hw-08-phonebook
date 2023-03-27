@@ -1,6 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import * as api from '../../components/shared/services/contacts';
+
+Notify.init({
+  width: '300px',
+  position: 'center-top',
+});
 
 export const fetchAllContacts = createAsyncThunk(
   'contacts/fetch-all',
@@ -32,8 +39,7 @@ export const fetchAddContact = createAsyncThunk(
         return name.toLowerCase() === normalizeName;
       });
       if (result) {
-        alert(`${name} is already in contacts!`);
-
+        Notify.warning(`${name} is already in contacts!`);
         return false;
       }
     },

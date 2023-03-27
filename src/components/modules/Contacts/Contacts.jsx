@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import Section from '../Section/Section';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
@@ -46,6 +48,7 @@ const Contacts = () => {
     dispatch(fetchDeleteContact(contactId));
     const action = setFilter('');
     dispatch(action);
+    Notify.success('Contact was successfully deleted!');
   };
 
   const changeFilter = ({ target }) => {
@@ -126,7 +129,7 @@ const Contacts = () => {
       </BasicModal>
 
       <BasicModal
-        title={'Contact"s name'}
+        title={'Edit contact'}
         onToggle={openEdit}
         setHandler={handleOpenEditForm}
       >

@@ -14,7 +14,7 @@ const RegisterPage = () => {
 
   return (
     <div className={css.container}>
-      <p className={css.text}>Don't have an account? Please, fill form</p>
+      <p className={css.text}>Don't have an account? Fill form below</p>
       <RegisterForm onSubmit={handleSignup} />
     </div>
   );
